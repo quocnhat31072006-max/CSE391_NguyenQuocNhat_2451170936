@@ -35,19 +35,19 @@ B5: Trình duyệt hiện thị trang Web
 
 -Trang này bị SEO thấp vì lạm dụng quá nhiều thẻ div nên google khó hiểu cấu trúc nội dung html(không có semantic)
 
-những lỗi semantic trong code:
+**những lỗi semantic trong code:**
 
-    <div class="header"> sửa lại thành <header>
-    <div class="menu"> sửa lại thành <nav>
-    <div><a href="/"> <a href = "/">
-    <div><a href="/products"> sửa thành <a href = "/products">
-    <div class="main"> sửa thành <main>
-    <div class="product"> sửa thành <article>
-    <div class="image"><img src="iphone.jpg"> sửa thành <img src="iphone.jpg">
-    <div class="footer">sửa thành <footer>
-    <div class="price"> sửa thành <p>
+    1. <div class="header"> sửa lại thành <header>
+    2. <div class="menu"> sửa lại thành <nav>
+    3. <div><a href="/"> <a href = "/">
+    4. <div><a href="/products"> sửa thành <a href = "/products">
+    5. <div class="main"> sửa thành <main>
+    6. <div class="product"> sửa thành <article>
+    7. <div class="image"><img src="iphone.jpg"> sửa thành <img src="iphone.jpg">
+    8. <div class="footer">sửa thành <footer>
+    9. <div class="price"> sửa thành <p>
 
-code hoàn chỉnh:
+**code hoàn chỉnh:**
 ```
 <header>
     <div class="logo">ShopTLU</div>
@@ -75,31 +75,33 @@ code hoàn chỉnh:
 │Hộp 3          │
 └───────────────┘
 ```
-Giải thích: 
-Vì thẻ <div> là Blox nên các các Hộp 1,Hộp 2 và Hộp 3 sẽ đứng riêng một dòng. và ngược lại
-thẻ <span> va <strong> đều là inline nên chúng sẽ Hiện thị nội dung trên cùng một dòng nếu ko có ngăn cách bởi các thẻ là Blox
+**Giải thích:**
+
+Vì thẻ  `<div>` là Blox nên các các Hộp 1,Hộp 2 và Hộp 3 sẽ đứng riêng một dòng. và ngược lại
+thẻ `<span>` va `<strong>` đều là inline nên chúng sẽ Hiện thị nội dung trên cùng một dòng nếu ko có ngăn cách bởi các thẻ là Blox
+
 **Nguồn tham chiếu**
    - 04_visible_part_html.md:
         + Block vs Inline — Hai loại element cơ bản
 
 ### Câu A4 (5đ) — Table
 
-Đọc chương 05. Giải thích sự khác nhau giữa <thead>, <tbody>, <tfoot>. Tại sao KHÔNG NÊN dùng table để tạo layout trang web? (Ghi rõ ít nhất 3 lý do)
+Đọc chương 05. Giải thích sự khác nhau giữa `<thead>`, `<tbody>`, `<tfoot>`. Tại sao KHÔNG NÊN dùng table để tạo layout trang web? (Ghi rõ ít nhất 3 lý do)
 
 Bài làm:
-1. Sự khác nhau giữa <thead>, <tbody>, <tfoot>
-    - <thead> (Table Head):
+1. Sự khác nhau giữa `<thead>`, `<tbody>`, `<tfoot>`
+    - `<thead>` (Table Head):
         + Chức năng: Nhóm các nội dung tiêu đề của bảng (thường là hàng đầu tiên).
-        + Đặc điểm: Thường chứa thẻ <th> (table header) để định dạng chữ in đậm và căn giữa theo mặc định.
-    - <tbody> (Table Body):
+        + Đặc điểm: Thường chứa thẻ `<th>` (table header) để định dạng chữ in đậm và căn giữa theo mặc định.
+    - `<tbody>` (Table Body):
         + Chức năng: Nhóm nội dung chính, dữ liệu chi tiết của bảng.
-        + Đặc điểm: Có thể sử dụng nhiều thẻ <tbody> trong một bảng để chia các nhóm dữ liệu khác nhau (ví dụ: chia theo tháng)
-    - <tfoot> (Table Foot):
+        + Đặc điểm: Có thể sử dụng nhiều thẻ `<tbody>` trong một bảng để chia các nhóm dữ liệu khác nhau (ví dụ: chia theo tháng)
+    - `<tfoot>` (Table Foot):
         + Chức năng: Nhóm nội dung tổng kết hoặc thông tin cuối bảng (ví dụ: tổng cộng, trung bình).
-        + Đặc điểm: Thường được hiển thị ở dưới cùng của bảng, ngay cả khi nó được đặt trước thẻ <tbody> trong mã nguồn
+        + Đặc điểm: Thường được hiển thị ở dưới cùng của bảng, ngay cả khi nó được đặt trước thẻ `<tbody>` trong mã nguồn
 
 2. Lý KHÔNG NÊN dùng table để tạo layout trang web.
-    - Tốc độ tải trang: Trình duyệt mất nhiều thời gian hơn để hiển thị bảng so với các thẻ <div>.
+    - Tốc độ tải trang: Trình duyệt mất nhiều thời gian hơn để hiển thị bảng so với các thẻ `<div>`.
     - Khó bảo trì: Mã nguồn trở nên phức tạp và lồng ghép quá sâu.
     - Khả năng truy cập: Các thiết bị hỗ trợ người khiếm thị gặp khó khăn khi đọc cấu trúc bảng dàn trang.
 
