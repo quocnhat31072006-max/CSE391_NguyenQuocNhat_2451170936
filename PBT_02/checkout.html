@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang đặt hàng</title>
+</head>
+
+<body>
+    <header>
+        <h1>Form đặt hàng</h1>
+    </header>
+    <main>
+        <form action="order" method="post">
+            <section id="section1">
+                <label for="search">Tìm sản phẩm</label>
+                <input list="products" name="search" id="search" placeholder="Nhập tên sản phẩm">
+
+                <datalist id="products">
+                    <option value="sp1"></option>
+                    <option value="sp2"></option>
+                    <option value="sp3"></option>
+                </datalist>
+                <h2>Giỏ hàng</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT </th>
+                            <th>Sản phẩm </th>
+                            <th>Đơn giá </th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>sp1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>sp2</td>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>sp3</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>9</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4">Tổng tiền</td>
+                            <td><output>14</output></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+
+            <section id="section2">
+                <h2>Phương thức thanh toán và Voucher</h2>
+                <fieldset>
+                    <legend>Phương thức thanh toán</legend>
+                    <input type="radio" name="paymentMethod" id="COD" value="COD" required>
+                    <label for="COD">COD</label>
+                    <input type="radio" name="paymentMethod" id="Bank" value="Bank">
+                    <label for="Bank">Chuyển khoản</label>
+                    <input type="radio" name="paymentMethod" id="E-Wallet" value="E-Wallet">
+                    <label for="E-Wallet">Ví điện tử</label>
+                </fieldset>
+                <label for="Voucher">Mã giảm giá</label>
+                <input type="text" name="Voucher" id="Voucher" pattern="^SALE[0-9]{4}$" placeholder="SALE2026">
+                <label for="note">Ghi chú</label>
+                <textarea name="note" id="note" placeholder="yêu cầu khác"></textarea>
+                <p>Điểm tích lũy:</p>
+                <meter value="70" min="0" max="100">70%</meter>
+            </section>
+
+            <br>
+
+            <section id="section3">
+                <h2>Thông tin giao hàng</h2>
+                <fieldset>
+                    <legend>Địa chỉ giao hàng</legend>
+
+                    <label for="city">Thành phố</label>
+                    <select name="city" id="city" required>
+                        <option value="">-- Chọn thành phố --</option>
+                        <option value="hanoi">Hà Nội</option>
+                        <option value="hcm">TP. Hồ Chí Minh</option>
+                        <option value="danang">Đà Nẵng</option>
+                        <option value="namdinh">Nam định</option>
+                        <option value="haiphong">Hải phòng</option>
+                    </select>
+
+                    <label for="district">Quận/Huyện</label>
+                    <select name="district" id="district" required>
+                        <option value="">-- Chọn quận/huyện --</option>
+                        <option value="badinh">Ba Đình</option>
+                        <option value="q1">Quận 1</option>
+                        <option value="haichau">Hải Châu</option>
+                        <option value="trucninh">Trực Ninh</option>
+                        <option value="hongbang">Hồng Bàng</option>
+                    </select>
+
+                    <label for="address">Địa chỉ chi tiết</label>
+                    <textarea name="address" id="address" rows="3" required></textarea>
+                </fieldset>
+                <label for="deliveryDate">Ngày giao hàng</label>
+                <input type="date" name="deliveryDate" id="deliveryDate" min="2026-04-27" required>
+                <label for="timeFrame">Khung giờ</label>
+                <select name="timeFrame" id="timeFrame" required>
+                    <option value="">-- chọn khung giờ --</option>
+                    <option value="8-12">Sáng 8h-12h</option>
+                    <option value="14-18">Chiều 14-18h</option>
+                    <option value="18-21">Tối 18-21h</option>
+                </select>
+                <label for="deliveryDays">Thời gian giao hàng(ngày)</label>
+                <input type="range" name="deliveryDays" id="deliveryDays" min="1" max="7" step="1">
+            </section>
+            <button type="submit" aria-label="Xác nhận đặt hàng">Xác nhận</button>
+        </form>
+    </main>
+</body>
+
+</html>
