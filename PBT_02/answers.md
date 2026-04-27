@@ -128,3 +128,93 @@
 Xác nhận password: (cùng rules — giải thích trong answers.md tại sao HTML không thể validate confirm password)
    - HTML không thể tự validate “xác nhận password” vì nó chỉ kiểm tra từng input riêng lẻ, không so sánh được giá trị giữa hai input khác nhau. 
 
+## Phần C
+### Câu C1
+
+```html
+<form>
+    Tên: <input type="text">
+    
+    <input type="email" placeholder="Email của bạn">
+    
+    <input type="password" placeholder="Mật khẩu">
+    <input type="password" placeholder="Nhập lại mật khẩu">
+    
+    Phone: <input type="text" value="0901234567">
+    
+    <select>
+        <option>Hà Nội</option>
+        <option>TP.HCM</option>
+    </select>
+    
+    <label>
+        Tôi đồng ý điều khoản
+    </label>
+    
+    <input type="submit" value="Gửi">
+</form>
+```
+
+BÀI LÀM: 
+``` 
+Lỗi 1: Dòng 2 — Input "Tên" không có label, vi phạm accessibility
+Sửa: <label for="name">Tên:</label> <input type="text" id="name" name="name" required>
+
+Lỗi 2: Dòng 4 — Input email không có label và thiếu name
+Sửa: <label for="email">Email:</label> <input type="email" id="email" name="email" placeholder="Email của bạn" required>
+
+Lỗi 3: Dòng 6–7 — Hai input password không có label và không phân biệt chức năng
+Sửa: <label for="password">Mật khẩu:</label> <input type="password" id="password" name="password" required>
+<label for="confirm">Nhập lại mật khẩu:</label> <input type="password" id="confirm" name="confirm" required>
+
+Lỗi 4: Dòng 9 — Input "Phone" dùng sai type (text → tel)
+Sửa: <label for="phone">Phone:</label> <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+Lỗi 5: Dòng 9 — Dùng value làm dữ liệu mặc định không hợp lý
+Sửa: <input type="tel" id="phone" name="phone" placeholder="0901234567">
+
+Lỗi 6: Dòng 11 — select không có label và name
+Sửa: <label for="city">Thành phố:</label> <select id="city" name="city" required> <option value="">-- Chọn thành phố --</option> <option value="hanoi">Hà Nội</option> <option value="hcm">TP.HCM</option> </select>
+
+Lỗi 7: Dòng 15 — Label "Tôi đồng ý điều khoản" không gắn với checkbox
+Sửa: <input type="checkbox" id="agree" name="agree" required> <label for="agree">Tôi đồng ý điều khoản</label>
+
+Lỗi 8: Dòng 18 — Dùng input type="submit" chưa tối ưu accessibility
+Sửa: <button type="submit" aria-label="Gửi form">Gửi</button>
+
+```
+### Câu C2
+
+```html
+<form>
+    <label for="CCCD">Số căn cước công dân</label>
+    <input type="text" name="CCCD" id="CCCD" pattern="[0-9]{12}" required>
+    <label for="accountNumber">Số tài khoản</label>
+    <input type="number" name="accountNumber" id="accountNumber" pattern="[0-9]{10,15} required>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required>
+    <label for="pin">Mã PIN</label>
+    <input type="password" name="pin" id="pin" pattern="[0-9]{12}" required>
+</form>
+```
+1. Viết pattern regex cho CMND/CCCD và Số tài khoản
+    - CMND/CCCD (12 chữ số): pattern="[0-9]{12}"
+    - Số tài khoản (10–15 chữ số): pattern="[0-9]{10,15}"
+
+2. Giải thích: HTML5 validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
+- Không. HTML5 validation KHÔNG đủ an toàn cho ứng dụng ngân hàng.
+- Lý do:
+    - Có thể bị bypass (tắt JavaScript, sửa request bằng DevTools/Postman)
+    - Chỉ kiểm tra phía client, không kiểm soát dữ liệu thật trên server
+    - Không bảo vệ được dữ liệu nhạy cảm
+
+3. Liệt kê 3 loại validation mà HTML5 KHÔNG THỂ làm được (phải dùng JavaScript)
+- Kiểm tra 2 field giống nhau (ví dụ: confirm password)
+- Kiểm tra logic phức tạp (ví dụ: số tài khoản có tồn tại trong hệ thống)
+- Validation theo điều kiện (ví dụ: nếu chọn A thì field B bắt buộc)
+
+4. Nêu 2 rủi ro bảo mật nếu chỉ validate trên Frontend mà không validate Backend
+- Người dùng có thể gửi dữ liệu sai/độc hại trực tiếp lên server (bypass form)
+Dễ bị tấn công (SQL Injection, dữ liệu giả mạo, spam)
+- Người dùng có thể gửi dữ liệu sai/độc hại trực tiếp lên server (bypass form)
+Dễ bị tấn công (SQL Injection, dữ liệu giả mạo, spam)
