@@ -1,0 +1,83 @@
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+/* chung */
+.box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid black;
+    background: lightblue;
+}
+
+/* box 1: content-box */
+.box1 {
+    box-sizing: content-box;
+}
+
+/* box 2: border-box */
+.box2 {
+    box-sizing: border-box;
+}
+
+.layout {
+    width: 1000px;
+    display: flex;
+    margin-top: 30px;
+    border: 2px solid black;
+}
+
+/* chung */
+.sidebar, .content, .ads {
+    border: 1px solid #ccc;
+}
+
+/* màu */
+.sidebar, .ads {
+    background: #eee;
+}
+
+/* không dùng border-box */
+.no-box .sidebar {
+    width: 250px;
+    padding: 15px;
+}
+
+.no-box .content {
+    width: 500px;
+    padding: 20px;
+}
+
+.no-box .ads {
+    width: 250px;
+    padding: 15px;
+}
+
+/* dùng border-box */
+.with-box .sidebar,
+.with-box .content,
+.with-box .ads {
+    box-sizing: border-box;
+}
+
+.with-box .sidebar {
+    width: 250px;
+    padding: 15px;
+}
+
+.with-box .content {
+    width: 500px;
+    padding: 20px;
+}
+
+.with-box .ads {
+    width: 250px;
+    padding: 15px;
+}
+
+.sidebar, .content, .ads {
+    border: 1px solid #ccc;
+    flex-shrink: 0;
+}
