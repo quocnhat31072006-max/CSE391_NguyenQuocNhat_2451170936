@@ -1,0 +1,56 @@
+<style>
+  h1 {
+    background: yellow;
+  }
+
+  .price {
+    background: lightgreen;
+  }
+
+  #app header {
+    border: 2px solid red;
+  }
+
+  nav a:first-child {
+    background: pink;
+  }
+
+  .product.featured h2 {
+    background: orange;
+  }
+
+  article > p {
+    border: 1px solid blue;
+  }
+
+  a[href="/"] {
+    background: purple;
+    color: white;
+  }
+
+  .top-bar.dark h1 {
+    border: 3px dashed black;
+  }
+</style>
+<div id="app">
+  <header class="top-bar dark">
+    <h1>ShopTLU</h1>
+    <nav>
+      <a href="/" class="active">Home</a>
+      <a href="/products">Products</a>
+      <a href="/about">About</a>
+    </nav>
+  </header>
+  <main>
+    <article class="product">
+      <h2>iPhone 16</h2>
+      <p class="price">25.990.000đ</p>
+      <p>Mô tả sản phẩm...</p>
+    </article>
+    <article class="product featured">
+      <h2>MacBook Pro</h2>
+      <p class="price">45.990.000đ</p>
+      <p>Mô tả sản phẩm...</p>
+    </article>
+  </main>
+</div>
