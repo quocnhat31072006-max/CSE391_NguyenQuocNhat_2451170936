@@ -16,28 +16,28 @@
 
 <!-- Trường hợp 1 -->
 `<input type="text" required value="">`   <!-- User để trống -->
-    - không submit được vì required bắt buộc phải nhập dữ liệu
+    - Không submit được vì required bắt buộc phải nhập dữ liệu
 
 <!-- Trường hợp 2 -->
 `<input type="email" value="abc">`        <!-- User gõ "abc" -->
-    - Không submit được vì ko đúng định dạng email (thiếu @)
+    - Không submit được vì không đúng định dạng email (thiếu @)
 
 <!-- Trường hợp 3 -->
 `<input type="number" min="1" max="10" value="15">` <!-- User gõ 15 -->
-    - ko submit được vì vượt quá giá trị max
+    - Không submit được vì vượt quá giá trị max
 
 <!-- Trường hợp 4 -->
 `<input type="text" pattern="[0-9]{10}" value="abc123">` <!-- User gõ "abc123" -->
-    -Ko submid dc vì pattern phải là 10 chữ số
+    - Không submit được vì pattern phải là 10 chữ số
 
 <!-- Trường hợp 5 -->
 `<input type="password" minlength="8" value="123">`  <!-- User gõ "123" -->
-    - vẫn submit dc vì không có thuộc tính required nên trường này không bắt buộc. minlength không đủ để chặn submit nếu input không required.
+    - Vẫn submit được vì không có thuộc tính required nên trường này không bắt buộc. minlength không đủ để chặn submit nếu input không required.
 
 ### Câu A3 (5đ) — Accessibility
 
 1. Tại sao `<label for="email">` quan trọng cho người dùng screen reader?
-    - Vì nó hỗ trợ cho screen reader đọc đước label này cho cái gì.
+    - Vì nó hỗ trợ cho screen reader đọc được label này cho cái gì.
     
 2. Khi nào dùng `<fieldset>` + `<legend>`? Cho ví dụ cụ thể.
     - dùng khi nhóm các thông tin liên quan với nhau trong form
@@ -73,12 +73,14 @@
         - OGG / OGV (.ogv)
 
 3. Thuộc tính `alt` trên `<img>` dùng để làm gì? 
-    - Thuộc tính `alt` trên `<img>` dùng để mô tả ảnh nếu ko load đc,
+    - Thuộc tính `alt` trên `<img>` dùng để mô tả ảnh nếu không load được,
     giúp cho screen reader đọc và SEO hiểu nội dung ảnh.
 
 
    Viết `alt` tốt cho 3 trường hợp: 
-    - Ảnh sản phẩm iPhone 16 ->> `<img src = "Iphone16.jpg" alt = "Iphone 16, 256GB, màu Tintan ">`
+    - Ảnh sản phẩm iPhone 16 ->> `<img src="Iphone16.jpg" alt="iPhone 16, 256GB, màu Titan">`
+    - Ảnh trang trí (decorative) `<img src="background.jpg" alt="">`
+    - Ảnh biểu đồ doanh thu Q1/2026 `<img src="chart.png" alt="Biểu đồ doanh thu quý 1 năm 2026">`
     - Ảnh trang trí (decorative) `<img src = "background.jpg" alt = "">`
     - Ảnh biểu đồ doanh thu Q1/2026 ` <img src = "chart.png" alt = "Biểu đồ doanh thu quý 1 năm 2026">`
 
@@ -96,9 +98,9 @@
 
 - Khi nào dùng Cách 1, khi nào dùng Cách 2? Cho 2 ví dụ thực tế cho mỗi cách.
     - dùng cách 1 khi:
-        - ảnh đơn giản ko cần cần chú thích riêng.
+        - ảnh đơn giản không cần chú thích riêng.
         - thông tin đã có trong text xung quanh.
-        - ảnh chỉ đóng vai tro minh họa
+        - ảnh chỉ đóng vai trò minh họa
     - vd:
         1. Ảnh thumbnail sản phẩm trong danh sách:
             `<img src="iphone.jpg" alt="iPhone 16">`
@@ -107,7 +109,7 @@
     - dùng cách 2 khi:
         - ảnh là nội dung chính
         - Cần chú thích riêng biệt
-        - Muốn nhóm ảnh + mô tả thành 1 khối sematic
+        - Muốn nhóm ảnh + mô tả thành 1 khối semantic
     - vd:
         1. Trang chi tiết sản phẩm:
             ```
@@ -190,11 +192,11 @@ Sửa: <button type="submit" aria-label="Gửi form">Gửi</button>
     <label for="CCCD">Số căn cước công dân</label>
     <input type="text" name="CCCD" id="CCCD" pattern="[0-9]{12}" required>
     <label for="accountNumber">Số tài khoản</label>
-    <input type="number" name="accountNumber" id="accountNumber" pattern="[0-9]{10,15} required>
+    <input type="number" name="accountNumber" id="accountNumber" pattern="[0-9]{10,15}" required>
     <label for="email">Email</label>
     <input type="email" name="email" id="email" required>
     <label for="pin">Mã PIN</label>
-    <input type="password" name="pin" id="pin" pattern="[0-9]{12}" required>
+    <input type="password" name="pin" id="pin" pattern="[0-9]{6}" required>
 </form>
 ```
 1. Viết pattern regex cho CMND/CCCD và Số tài khoản
@@ -215,6 +217,4 @@ Sửa: <button type="submit" aria-label="Gửi form">Gửi</button>
 
 4. Nêu 2 rủi ro bảo mật nếu chỉ validate trên Frontend mà không validate Backend
 - Người dùng có thể gửi dữ liệu sai/độc hại trực tiếp lên server (bypass form)
-Dễ bị tấn công (SQL Injection, dữ liệu giả mạo, spam)
-- Người dùng có thể gửi dữ liệu sai/độc hại trực tiếp lên server (bypass form)
-Dễ bị tấn công (SQL Injection, dữ liệu giả mạo, spam)
+- Dễ bị tấn công (SQL Injection, dữ liệu giả mạo, spam)
