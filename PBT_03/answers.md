@@ -230,6 +230,43 @@ Rule D: p.price
   - Không dùng border-box → padding làm tăng kích thước
   - Dùng border-box → giữ đúng kích thước mong muốn
 
+### Câu B3
+
+1. Danh sách rules + specificity
+
+- p → (0,0,1)  
+- .text → (0,1,0)  
+- .highlight → (0,1,0)  
+- p.text → (0,1,1)  
+- p.highlight → (0,1,1)  
+- .text.highlight → (0,2,0)  
+- #demo → (1,0,0)  
+- #demo.text → (1,1,0)  
+- #demo.highlight → (1,1,0)  
+- #demo.text.highlight → (1,2,0)  
+
+---
+
+2. Màu cuối cùng
+
+Phần tử `<p id="demo" class="text highlight">` match tất cả các rule trên.
+
+Rule có specificity cao nhất là:
+(1,2,0) → `#demo.text.highlight`
+
+=> màu cuối cùng: **gold**
+
+4. Đổi thứ tự rules có ảnh hưởng không?
+
+- Nếu khác specificity → KHÔNG ảnh hưởng  
+- Nếu cùng specificity → rule viết sau sẽ thắng  
+
+Trong bài này:
+- Rule mạnh nhất là (1,2,0) nên luôn thắng  
+- Dù đổi thứ tự, kết quả vẫn là **gold**
+
+=> Kết luận: **không đổi**
+
 ---
 
 ## PHẦN C — DEBUG & SUY LUẬN (20 điểm)
