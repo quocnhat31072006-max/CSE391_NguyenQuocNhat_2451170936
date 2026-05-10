@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    height: 60px;
+
+    background-color: darkblue;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 20px;
+
+    z-index: 1000;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* MAIN */
+main {
+    padding-top: 60px;
+}
+
+/* PRODUCTS */
+.products {
+    background-color: lightblue;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* PRODUCT GRID */
+.product-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* PRODUCT CARD */
+.item {
+    position: relative;
+    background-color: white;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BADGE */
+.badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SIDEBAR */
+.sidebar {
+    position: sticky;
+    top: 80px;
+    width: 250px;
+    height: 300px;
+    background-color: darkgreen;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+/* ABOUT */
+.about {
+    height: 100vh;
+    background-color: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SCROLL BUTTON */
+.scroll-top {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background-color: black;
+    color: white;
+
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
