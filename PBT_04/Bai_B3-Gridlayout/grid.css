@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+header{
+    background: #ddd;
+    padding: 30px;
+    text-align: center;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+
+    grid-template-columns: 200px 1fr 200px;
+
+    grid-template-areas:
+        "hero hero hero"
+        "sidebar main-content ads";
+
+    gap: 20px;
+}
+
+.hero{
+    grid-area: hero;
+    background: #ccc;
+    padding: 40px;
+    text-align: center;
+    align-content: center;
+}
+
+.sidebar{
+    grid-area: sidebar;
+    background: #eee;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main-content{
+    grid-area: main-content;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.card{
+    background: #ddd;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.ads{
+    grid-area: ads;
+    background: #eee;
+    padding: 20px;
+    text-align: center;
+}
+
+footer{
+    background: #ddd;
+    padding: 30px;
+    text-align: center;
+}
+
