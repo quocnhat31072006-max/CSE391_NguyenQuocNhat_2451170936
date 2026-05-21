@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Register Form</h1>
+
+    <form id="form">
+
+        <input id="name" placeholder="Name">
+        <small id="nameErr"></small>
+
+        <input id="email" placeholder="Email">
+        <small id="emailErr"></small>
+
+        <input id="password" type="password" placeholder="Password">
+        <div id="strength"></div>
+
+        <input id="confirm" type="password" placeholder="Confirm Password">
+        <small id="confirmErr"></small>
+
+        <input id="phone" placeholder="Phone">
+
+        <button id="submit" disabled>Submit</button>
+
+    </form>
+</div>
+
+<div id="modal" class="hidden">
+    <div class="box">
+        <h2>Success 🎉</h2>
+        <p id="info"></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
