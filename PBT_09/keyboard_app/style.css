@@ -1,0 +1,40 @@
+body {
+    font-family: Arial;
+    text-align: center;
+}
+
+#gallery img {
+    width: 400px;
+    cursor: pointer;
+}
+
+#modal {
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.7);
+}
+
+#modal img {
+    margin-top: 100px;
+    width: 500px;
+}
+
+#palette {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px;
+    width: 300px;
+}
+
+.hidden {
+    display: none;
+}
+
+#cmdList li {
+    cursor: pointer;
+    padding: 5px;
+}
