@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Directory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>User Directory</h1>
+            <p>Quản lý danh sách user với CRUD và API JSONPlaceholder.</p>
+        </header>
+
+        <section class="toolbar">
+            <input id="searchInput" type="search" placeholder="Tìm theo tên hoặc email...">
+            <button id="refreshBtn">Tải lại</button>
+        </section>
+
+        <section id="message" class="message"></section>
+
+        <section id="userTableSection" class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Company</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody"></tbody>
+            </table>
+        </section>
+
+        <section class="card form-card">
+            <h2 id="formTitle">Thêm user mới</h2>
+            <form id="userForm">
+                <input type="hidden" id="userId">
+                <div class="form-row">
+                    <label>Name</label>
+                    <input id="nameInput" type="text" required>
+                </div>
+                <div class="form-row">
+                    <label>Email</label>
+                    <input id="emailInput" type="email" required>
+                </div>
+                <div class="form-row">
+                    <label>Company</label>
+                    <input id="companyInput" type="text" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit">Lưu</button>
+                    <button id="cancelEdit" type="button" class="secondary hidden">Hủy</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
