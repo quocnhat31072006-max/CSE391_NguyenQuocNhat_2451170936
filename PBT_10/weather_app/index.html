@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-shell">
+        <header>
+            <h1>Weather App</h1>
+            <p>Nhập tên thành phố để xem thời tiết hiện tại.</p>
+        </header>
+
+        <main>
+            <section class="search-panel">
+                <form id="weatherForm">
+                    <input id="cityInput" type="text" placeholder="Nhập thành phố" required>
+                    <button type="submit">Tìm</button>
+                </form>
+                <div id="status" class="status"></div>
+            </section>
+
+            <section class="history-panel">
+                <h2>Lịch sử tìm kiếm</h2>
+                <ul id="historyList" class="history-list"></ul>
+            </section>
+
+            <section id="weatherCard" class="weather-card hidden">
+                <div class="weather-header">
+                    <div>
+                        <h2 id="cityName"></h2>
+                        <p id="weatherDesc"></p>
+                    </div>
+                    <div id="weatherIcon" class="weather-icon">☀️</div>
+                </div>
+                <div class="weather-details">
+                    <div><strong>Nhiệt độ:</strong> <span id="temperature"></span></div>
+                    <div><strong>Độ ẩm:</strong> <span id="humidity"></span></div>
+                    <div><strong>Tốc độ gió:</strong> <span id="windSpeed"></span></div>
+                    <div><strong>Thời gian:</strong> <span id="time"></span></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
