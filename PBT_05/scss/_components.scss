@@ -1,0 +1,163 @@
+.page {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: $spacing-lg;
+
+  header {
+    @include flex-center;
+    justify-content: space-between;
+    gap: $spacing-md;
+    padding: $spacing-md 0;
+
+    h1 {
+      font-size: 1.9rem;
+    }
+
+    .hamburger {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    nav {
+      display: none;
+      gap: $spacing-md;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    }
+  }
+
+  main {
+    display: grid;
+    gap: $spacing-lg;
+
+    .sidebar {
+      display: none;
+      background: white;
+      padding: $spacing-md;
+      border-radius: $border-radius;
+      box-shadow: $shadow;
+
+      h3 {
+        margin-bottom: $spacing-md;
+      }
+
+      label {
+        display: block;
+        margin-bottom: $spacing-sm;
+        padding: $spacing-sm $spacing-md;
+        border-radius: 12px;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+      }
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+
+      .card {
+        @include card-shadow;
+        overflow: hidden;
+        border: 1px solid #e5e7eb;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
+
+        h3 {
+          font-size: 1.15rem;
+          margin: $spacing-md 0 $spacing-sm;
+        }
+
+        p {
+          margin-bottom: $spacing-md;
+          color: #4b5563;
+        }
+      }
+    }
+
+    .ads {
+      display: none;
+      @include card-shadow;
+      padding: $spacing-lg;
+      text-align: center;
+      font-weight: 700;
+      color: #374151;
+    }
+  }
+
+  footer {
+    @include flex-center;
+    padding: $spacing-md 0;
+    background: #111827;
+    color: white;
+    border-radius: 12px;
+  }
+}
+
+@include respond-to(tablet) {
+  .page {
+    header {
+      .hamburger {
+        display: none;
+      }
+
+      nav {
+        display: flex;
+      }
+    }
+
+    main {
+      .sidebar {
+        display: flex;
+        flex-direction: row;
+        gap: $spacing-md;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  }
+}
+
+@include respond-to(desktop) {
+  .page {
+    header {
+      .hamburger {
+        display: none;
+      }
+    }
+
+    main {
+      grid-template-columns: 200px 1fr 220px;
+      align-items: start;
+
+      .sidebar {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ads {
+        display: block;
+      }
+
+      .products {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+  }
+}
