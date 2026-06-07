@@ -5,6 +5,8 @@
 }
 .page header {
   display: flex;
+  justify-content: center;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding: 16px 0;
@@ -58,9 +60,7 @@
   background: white;
   overflow: hidden;
   border: 1px solid #e5e7eb;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .page main .products .card:hover {
   transform: translateY(-6px);
@@ -98,6 +98,7 @@
   color: white;
   border-radius: 12px;
 }
+
 @media (min-width: 768px) {
   .page header .hamburger {
     display: none;
@@ -115,6 +116,9 @@
   }
 }
 @media (min-width: 1024px) {
+  .page header .hamburger {
+    display: none;
+  }
   .page main {
     grid-template-columns: 200px 1fr 220px;
     align-items: start;
